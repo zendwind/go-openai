@@ -49,6 +49,18 @@ func DefaultConfig(authToken string) ClientConfig {
 		EmptyMessagesLimit: defaultEmptyMessagesLimit,
 	}
 }
+func DefaultProxyConfig(apiUrl string, authToken string) ClientConfig {
+	return ClientConfig{
+		authToken: authToken,
+		BaseURL:   apiUrl,
+		APIType:   APITypeOpenAI,
+		OrgID:     "",
+
+		HTTPClient: &http.Client{},
+
+		EmptyMessagesLimit: defaultEmptyMessagesLimit,
+	}
+}
 
 func DefaultAzureConfig(apiKey, baseURL string) ClientConfig {
 	return ClientConfig{
